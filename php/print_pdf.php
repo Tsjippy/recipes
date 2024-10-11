@@ -10,13 +10,13 @@ add_action('sim-before-print-content', function($post, $pdf){
     $pdf->printImage(get_the_post_thumbnail_url($post), -1, 20, -1, -1, true, true);
 		
     //Duration
-    $url = plugins_url('pictures/time.png', __DIR__);
+    $url = SIM\pathToUrl(MODULE_PATH.'pictures/time.png');
 
     $pdf->printImage($url, 10, -1, 10, 10);
     $pdf->write(10,get_post_meta($post->ID, 'time_needed', true).' minutes');
     
     //Serves
-    $url = plugins_url('pictures/serves.png', __DIR__);
+    $url = SIM\pathToUrl(MODULE_PATH.'pictures/serves.png');
     $pdf->printImage($url, 55, -1, 10, 10);
     
     $persons = get_post_meta(get_the_ID(), 'serves', true);

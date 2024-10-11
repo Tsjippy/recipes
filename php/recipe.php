@@ -174,7 +174,7 @@ add_action('sim_before_page_print', function($post, $pdf){
 	if($post->post_type == 'recipe'){
 		$pdf->printImage(get_the_post_thumbnail_url($post),-1,20,-1,-1,true,true);
 
-		$baseUrl	= plugins_url('pictures', __DIR__);
+		$baseUrl	= SIM\pathToUrl(MODULE_PATH.'pictures');
 		
 		//Duration
 		$url = "{$baseUrl}/time.png";
