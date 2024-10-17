@@ -22,5 +22,5 @@ add_filter('sim_submenu_description', function($description, $moduleSlug){
 		<a href='<?php echo home_url('/recipes');?>'>Recipes</a><br>
 	</p>
 	<?php
-	return ob_get_clean();
+	return $description.ob_get_clean();
 },10,2);
