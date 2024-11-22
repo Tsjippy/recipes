@@ -2,7 +2,7 @@
 namespace SIM\RECIPES;
 use SIM;
 
-const MODULE_VERSION		= '8.0.0';
+const MODULE_VERSION		= '8.0.3';
 
 DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 
