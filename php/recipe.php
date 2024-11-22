@@ -8,14 +8,16 @@ use SIM;
 	We make sure post of this type get an url according to their taxonomy
 */
 
-add_action('init', function(){
+add_action('init', __NAMESPACE__.'\init', 999);
+function init(){
 	/*
 		CREATE RECIPE POST TYPE
 	*/
 	SIM\registerPostTypeAndTax('recipe','recipes');
-}, 999);
+}
 
-add_filter( 'widget_categories_args', function ( $catArgs ) {
+add_filter( 'widget_categories_args', __NAMESPACE__.'\widgetCatArgs');
+function widgetCatArgs( $catArgs ) {
 	//if we are on a recipes page, change to display the recipe types
 	if(is_tax('recipes') || is_page('recipes') || get_post_type()=='recipe'){
 		$catArgs['taxonomy'] 		= 'recipes';
@@ -24,17 +26,18 @@ add_filter( 'widget_categories_args', function ( $catArgs ) {
 	}
 		
     return $catArgs;
-});
+}
 
 //Add to frontend form
 add_action('sim_frontend_post_before_content', __NAMESPACE__.'\recipeSpecificFields');
 add_action('sim_frontend_post_content_title', __NAMESPACE__.'\recipeTitle');
 add_action('sim_after_post_save', __NAMESPACE__.'\storeRecipeMeta', 10, 2);
 
-add_filter('sim_frontend_posting_modals', function($types){
+add_filter('sim_frontend_posting_modals', __NAMESPACE__.'\postingModals');
+function postingModals($types){
 	$types[]	= 'recipe';
 	return $types;
-});
+}
 
 function recipeTitle($postType){
 	//Recipe content title
@@ -169,7 +172,8 @@ function recipeSpecificFields($frontEndContent){
 	<?php
 }
 
-add_action('sim_before_page_print', function($post, $pdf){
+add_action('sim_before_page_print', __NAMESPACE__.'\beforePagePrint');
+function beforePagePrint($post, $pdf){
 	//If recipe
 	if($post->post_type == 'recipe'){
 		$pdf->printImage(get_the_post_thumbnail_url($post),-1,20,-1,-1,true,true);
@@ -207,4 +211,4 @@ add_action('sim_before_page_print', function($post, $pdf){
 		$pdf->Ln(10);
 		$pdf->writeHTML('<b>Instructions:</b>');
 	}
-});
+}

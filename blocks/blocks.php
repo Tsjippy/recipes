@@ -1,8 +1,9 @@
 <?php
-namespace SIM\LOCATIONS;
+namespace SIM\RECIPES;
 use SIM;
 
-add_action('init', function () {
+add_action('init', __NAMESPACE__.'\blockInit');
+function blockInit() {
 	register_block_type(
 		__DIR__ . '/metadata/build',
 		array(
@@ -29,10 +30,8 @@ add_action('init', function () {
 			]
 		)
 	);
-});
 
-// register custom meta tag field
-add_action( 'init', function(){
+	// register custom meta tag field
 	register_post_meta( 'recipe', 'ingredients', array(
         'show_in_rest' 	=> true,
         'single' 		=> true,
@@ -53,4 +52,4 @@ add_action( 'init', function(){
         'type' 			=> 'integer',
 		'sanitize_callback' => 'sanitize_text_field'
     ) );
-} );
+}

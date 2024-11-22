@@ -2,7 +2,8 @@
 namespace SIM\RECIPES;
 use SIM;
 
-add_action('sim-before-print-content', function($post, $pdf){
+add_action('sim-before-print-content', __NAMESPACE__.'\beforePrint', 10, 2);
+function beforePrint($post, $pdf){
     if($post->post_type != 'recipe'){
         return;
     }
@@ -39,4 +40,4 @@ add_action('sim-before-print-content', function($post, $pdf){
     
     $pdf->Ln(10);
     $pdf->writeHTML('<b>Instructions:</b>');
-}, 10, 2);
+}
