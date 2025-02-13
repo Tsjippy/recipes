@@ -5,6 +5,7 @@
 
 ### Changed
 - removed anonymous functions
+- module hooks now include module slug
 
 ### Fixed
 
