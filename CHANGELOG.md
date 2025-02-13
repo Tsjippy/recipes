@@ -4,10 +4,17 @@
 ### Added
 
 ### Changed
-- removed anonymous functions
-- module hooks now include module slug
 
 ### Fixed
+
+### Updated
+
+## [8.0.4] - 2025-02-13
+
+
+### Changed
+- removed anonymous functions
+- module hooks now include module slug
 
 ### Updated
 - blocks
