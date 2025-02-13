@@ -9,13 +9,8 @@ DEFINE(__NAMESPACE__.'\MODULE_PATH', plugin_dir_path(__DIR__));
 //module slug is the same as grandparent folder name
 DEFINE(__NAMESPACE__.'\MODULE_SLUG', strtolower(basename(dirname(__DIR__))));
 
-add_filter('sim_submenu_description', __NAMESPACE__.'\moduleDescription', 10, 2);
-function moduleDescription($description, $moduleSlug){
-	//module slug should be the same as the constant
-	if($moduleSlug != MODULE_SLUG)	{
-		return $description;
-	}
-
+add_filter('sim_submenu_recipes_description', __NAMESPACE__.'\moduleDescription');
+function moduleDescription($description){
 	ob_start();
 	?>
 	<p>
