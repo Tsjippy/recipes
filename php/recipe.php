@@ -212,3 +212,14 @@ function beforePagePrint($post, $pdf){
 		$pdf->writeHTML('<b>Instructions:</b>');
 	}
 }
+
+add_filter('sim-theme-archive-page-title', __NAMESPACE__.'\changeArchiveTitle', 10, 2);
+function changeArchiveTitle($title, $category){
+	if(is_tax('recipes')){
+		$title = ucfirst($category->name).' Recipies';
+	}elseif(is_post_type_archive('recipe')){
+		$title = 'Recipes';
+	}
+	
+	return $title;
+}
