@@ -46,7 +46,7 @@ function recipeTitle($postType){
 		$class .= ' hidden';
 	}
 	
-	echo "<h4 class='$class' name='recipe_content_label'>";
+	echo "<h4 class='$class' name='recipe-content-label'>";
 		echo 'Recipe instructions (one per line)';
 	echo "</h4>";
 }
@@ -58,8 +58,8 @@ function storeRecipeMeta($post){
 	
 	//store categories
     $cats = [];
-    if(is_array($_POST['recipes_ids'])){
-        foreach($_POST['recipes_ids'] as $catId) {
+    if(is_array($_POST['recipes-ids'])){
+        foreach($_POST['recipes-ids'] as $catId) {
             if(is_numeric($catId)){
 				$cats[] = $catId;
 			}
@@ -120,10 +120,10 @@ function storeRecipeMeta($post){
 	}
 	
 	//time_needed
-	if(isset($_POST['time_needed'])){
-		if(is_numeric($_POST['time_needed'])){
+	if(isset($_POST['time-needed'])){
+		if(is_numeric($_POST['time-needed'])){
 			//Store time_needed
-			update_metadata( 'post', $post->ID, 'time_needed', $_POST['time_needed']);
+			update_metadata( 'post', $post->ID, 'time_needed', $_POST['time-needed']);
 		}else{
 			delete_post_meta($post->ID, 'time_needed');
 		}
@@ -151,19 +151,19 @@ function recipeSpecificFields($frontEndContent){
 	$frontEndContent->showCategories('recipe', $categories);
 	?>
 	<div class="property recipe <?php if($frontEndContent->postType != 'recipe'){echo 'hidden';} ?>">
-		<h4 name="ingredients_label">Recipe ingredients (one per line)</h4>
+		<h4 name="ingredients-label">Recipe ingredients (one per line)</h4>
 		<textarea name="ingredients" rows="10">
 			<?php echo wp_strip_all_tags(get_post_meta($frontEndContent->postId,'ingredients',true)); ?>
 		</textarea>
 		
 		
-		<label class="block" name="time_need_label">
+		<label class="block" name="time-need-label">
 			<h4>Recipe time needed</h4>
-			<input type='number' name="time_needed" min="1" value="<?php echo get_post_meta($frontEndContent->postId,'time_needed',true); ?>" style="display: inline-block;"> 
+			<input type='number' name="time-needed" min="1" value="<?php echo get_post_meta($frontEndContent->postId,'time_needed',true); ?>" style="display: inline-block;"> 
 			<span style="margin-left:-100px;">minutes</span>
 		</label>
 
-		<label class="block" name="serves_label">
+		<label class="block">
 			<h4>Serves</h4>
 			<input type='number' name="serves" min="1" value="<?php echo get_post_meta($frontEndContent->postId,'serves',true); ?>" style="display: inline-block;"> 
 			<span style="margin-left:-100px;">people</span>

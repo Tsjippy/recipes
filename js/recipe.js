@@ -511,10 +511,10 @@ function changeServes(ev){
   //Get the original value
   var originalvalue 	= parseFloat(this.dataset.originalvalue);
   //get the current value
-  var newvalue 	= this.value;
+  var new-value 	= this.value;
 
   //Check with what number the ingredients need to be multiplied
-  var factor 		= newvalue/originalvalue;
+  var factor 		= new-value/originalvalue;
 
   //Update the person text
   if(this.value == 1){
@@ -546,8 +546,8 @@ function changeServes(ev){
 
 document.addEventListener("DOMContentLoaded", function() {
 	
-	//Loop over all select element with class serves_select
-	document.querySelectorAll(".serves_select").forEach(function(el){
+	//Loop over all select element with class serves-select
+	document.querySelectorAll(".serves-select").forEach(function(el){
 		
 		//Add change event listener
 		el.addEventListener('change', changeServes);

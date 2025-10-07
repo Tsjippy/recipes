@@ -31,12 +31,12 @@ if(is_tax() || is_archive()){
 		margin-right: 10px;
 	}
 
-	.cat_card{
+	.cat-card{
 		padding: 10px;
 	}
 </style>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?> <?php generate_do_microdata( 'article' ); ?>>
-	<div class="cat_card<?php if(!$archive){echo ' inside-article';}?>">
+	<div class="cat-card<?php if(!$archive){echo ' inside-article';}?>">
 		
 		<?php 
 		if($archive){
@@ -76,7 +76,7 @@ if(is_tax() || is_archive()){
 					);
 					
 					$url = SIM\pathToUrl(MODULE_PATH.'pictures/category.png');
-					echo "<img src='$url' loading='lazy' alt='category' class='recipe_icon'>";
+					echo "<img src='$url' loading='lazy' alt='category' class='recipe-icon'>";
 
 					$i = 1;
 					foreach($categories as $id=>$category){
@@ -94,10 +94,10 @@ if(is_tax() || is_archive()){
 				<?php 
 				} 
 				?>
-				<span class='cooking_time recipemeta'>
+				<span class='cooking-time recipemeta'>
 					<?php 
 					$url = SIM\pathToUrl(MODULE_PATH.'pictures/time.png');
-					echo "<img src='$url' loading='lazy' alt='category' class='recipe_icon'>";
+					echo "<img src='$url' loading='lazy' alt='category' class='recipe-icon'>";
 					echo get_post_meta(get_the_ID(),'time_needed',true); 
 					if(!$archive){
 						echo 'minutes';
@@ -107,9 +107,9 @@ if(is_tax() || is_archive()){
 				<span class='serves recipemeta'>
 					<?php
 					$url = SIM\pathToUrl(MODULE_PATH.'pictures/serves.png');
-					echo "<img src='$url' loading='lazy' alt='category' class='recipe_icon'>";
+					echo "<img src='$url' loading='lazy' alt='category' class='recipe-icon'>";
 					$persons = get_post_meta(get_the_ID(),'serves',true);
-					echo "<select class='serves_select' data-originalvalue='$persons' style='padding:0px;'>";
+					echo "<select class='serves-select' data-originalvalue='$persons' style='padding:0px;'>";
 					for($i = 1; $i<=10; $i++) {
 						echo "<option value='$i'";
 						if($i == $persons){
