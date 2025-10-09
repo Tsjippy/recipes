@@ -35,7 +35,7 @@ if(!isset($skipHeader) || !$skipHeader){
 
 			endwhile;
 			
-			?> <nav id='post_navigation'>
+			?> <nav id='post-navigation'>
 				<span id='prev'>
 					<?php previous_post_link(); ?>
 				</span>
