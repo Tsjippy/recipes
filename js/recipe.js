@@ -509,12 +509,12 @@ console.log('Recipe.js loaded');
 
 function changeServes(ev){
   //Get the original value
-  var originalvalue 	= parseFloat(this.dataset.originalvalue);
+  var originalValue 	= parseFloat(this.dataset.originalvalue);
   //get the current value
-  var new-value 	= this.value;
+  var newValue 	= this.value;
 
   //Check with what number the ingredients need to be multiplied
-  var factor 		= new-value/originalvalue;
+  var factor 		= newValue/originalValue;
 
   //Update the person text
   if(this.value == 1){
