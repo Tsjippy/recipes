@@ -141,14 +141,7 @@ function storeRecipeMeta($post){
 }
 
 function recipeSpecificFields($frontEndContent){
-	$categories	= get_categories( array(
-		'orderby' => 'name',
-		'order'   => 'ASC',
-		'taxonomy'=> 'recipes',
-		'hide_empty' => false,
-	) );
-	
-	$frontEndContent->showCategories('recipe', $categories);
+	$frontEndContent->showCategories('recipe', 'recipes');
 	?>
 	<div class="property recipe <?php if($frontEndContent->postType != 'recipe'){echo 'hidden';} ?>">
 		<h4 name="ingredients-label">Recipe ingredients (one per line)</h4>
