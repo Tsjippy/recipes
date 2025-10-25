@@ -33,12 +33,6 @@ add_action('sim_frontend_post_before_content', __NAMESPACE__.'\recipeSpecificFie
 add_action('sim_frontend_post_content_title', __NAMESPACE__.'\recipeTitle');
 add_action('sim_after_post_save', __NAMESPACE__.'\storeRecipeMeta', 10, 2);
 
-add_filter('sim_frontend_posting_modals', __NAMESPACE__.'\postingModals');
-function postingModals($types){
-	$types[]	= 'recipe';
-	return $types;
-}
-
 function recipeTitle($postType){
 	//Recipe content title
 	$class = 'property recipe';
@@ -141,7 +135,6 @@ function storeRecipeMeta($post){
 }
 
 function recipeSpecificFields($frontEndContent){
-	$frontEndContent->showCategories('recipe', 'recipes');
 	?>
 	<div class="property recipe <?php if($frontEndContent->postType != 'recipe'){echo 'hidden';} ?>">
 		<h4 name="ingredients-label">Recipe ingredients (one per line)</h4>
