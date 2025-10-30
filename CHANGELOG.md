@@ -4,11 +4,16 @@
 ### Added
 
 ### Changed
-- new format for frontendcontent
 
 ### Fixed
 
 ### Updated
+
+## [8.0.8] - 2025-10-30
+
+
+### Changed
+- new format for frontendcontent
 
 ## [8.0.7] - 2025-10-25
 
