@@ -508,6 +508,8 @@ console.log('Recipe.js loaded');
 });
 
 function changeServes(ev){
+  ev.stopImmediatePropagation();
+
   //Get the original value
   var originalValue 	= parseFloat(this.dataset.originalvalue);
   //get the current value
